@@ -77,7 +77,24 @@ Student Initiatives
 
 <!-- <button onclick="ga('send', 'event', 'test', 'click', 'virkplox', '5', 'wut');">Example Button Text</button> -->
 <!-- <a href="https://www.w3schools.com" onclick="ga('send', 'event', 'test', 'click', 'virkplox', '5', 'wut');">TRACKER</a> -->
-<a href="https://www.w3schools.com/" onClick="ga('send', 'event', { eventCategory: 'Test', eventAction: 'Click', eventLabel: 'W3Schools', eventValue: 5});">TRANKYDANKY</a>
+<!-- <a href="https://www.w3schools.com/" onClick="ga('send', 'event', { eventCategory: 'Test', eventAction: 'Click', eventLabel: 'W3Schools', eventValue: 5});">TRANKYDANKY</a> -->
+
+<script>
+  /**
+  * Function that tracks a click on an outbound link in Analytics.
+  * This function takes a valid URL string as an argument, and uses that URL string
+  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+  * using 'navigator.sendBeacon' in browser that support it.
+  */
+  var trackOutboundLink = function(url) {
+     ga('send', 'event', 'outbound', 'click', url, {
+       'transport': 'beacon',
+       'hitCallback': function(){document.location = url;}
+     });
+  }
+  </script>
+  
+  <a href="http://www.example.com" onclick="trackOutboundLink('http://www.example.com'); return false;">Check out example.com</a>
 
 </div>
 
