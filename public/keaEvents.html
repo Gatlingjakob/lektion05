@@ -96,7 +96,9 @@ Student Initiatives
   
   <!-- <a href="http://www.example.com" onclick="trackOutboundLink('http://www.example.com'); return false;">Check out example.com</a>  -->
   
-  <a target="_blank" href="http://www.example.com" class="btn_bmi blue white" onclick="ga('send', 'event', 'BuyNow', 'click');">Buy Now</a>
+  <a target="_blank" href="http://www.example.com" class="btn_bmi blue white" onclick="gtag('event', 'click', {
+    'event_category': 'BuyNow'
+  });">Buy Now</a>
 
 
 </div>
